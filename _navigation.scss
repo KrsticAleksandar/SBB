@@ -1,0 +1,287 @@
+
+.navigacija {
+
+    @include pageWidth-80;
+    
+    & a {
+        text-decoration: none;
+        font-weight: map-get($font-weights, medium);
+        font-size: 14px;
+    }
+                                    /* NAVIGACIJA-GORE - POCETAK */
+    &-gore {
+        display: flex;
+        height: 28px;
+        background-color: $black-color;
+        animation: SlideFromLeft 4s;
+      
+        &-levo {
+            @include flexCenter;
+            width: 50%;
+            border: 2px solid $black-color;
+
+                div {
+                    display: flex;
+                    justify-content: left;
+                    height: 100%;
+                    width: 100%;
+                        
+                        &:hover {
+                            background-color: $white-color;
+                            color: $black-color;
+                            cursor: pointer;
+                        }
+                }
+
+                a {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: $white-color;
+                    height: 100%;
+                    width: 100%;
+                        
+                        &:hover {
+                                color: $black-color;
+                            }
+                }
+        }
+        
+    
+        &-desno {
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            width: 50%;
+
+                div {
+                    display: flex;
+                    align-items: center;
+                    margin-left: 25px;
+                    height: 100%;
+                }
+
+                .prodajna-mesta {
+                    margin-right: 10px;
+
+                    & a {
+
+                        color: $white-color;
+                        opacity: 1;
+        
+                            &:hover {
+                                color: $lightGray-color;
+                            }
+                        }
+                    
+                }
+                   
+                .korisnicki-centar {
+                    margin-right: 10px;
+
+                    & a {
+                        color: $white-color;
+                        opacity: 1;
+                        cursor: text;
+                    }
+                }     
+
+                .search-bar {
+
+                    & {
+                        display: flex;                       
+                        justify-content: right;
+                        width: 0;
+                        height: 28px;
+                        padding-left: 20px;
+                    }        
+                
+                    img { 
+                        position: absolute;
+                        width: 26px;
+                        height: 26px;
+                        @include flexCenter;
+                        pointer-events: none;
+                    }
+                
+                    input {
+                        position: relative;
+                        width: 27px;
+                        height: 24px;
+                        border: none;
+                        padding: 10px;
+                        font-size: 14px;
+                        background-color: $white-color;
+                        cursor: pointer;
+                    }
+                
+                    &:focus-within {
+                        width: 200px;
+                        transition: 0.5s ease-in;
+                            
+                            input {
+                                width: 200px;
+                                transition: 0.5s ease-in;
+                                background-color: $white-color;
+                                color: $black-color;
+                                cursor: pointer;
+                            }
+                    }
+                }
+        }
+    }
+        
+                                        /* NAVIGACIJA-GORE - KRAJ */
+
+                                        /* NAVIGACIJA-DOLE - POCETAK */
+    &-dole {
+        @include flexWidth;    
+        height: 80px;
+        animation: SlideFromRight 4s;
+        width: 100%;       
+        margin-top: 5px;
+        background-color: $white-color;
+
+        
+            &-levo {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 50%;
+                height: 50px;
+                border-bottom: 1px solid $lightGray-color;
+
+                    div {
+                        @include flexHeight;
+                        border-bottom: 3px solid transparent;
+                        cursor: pointer;
+
+                        &:hover:not(#logo) {
+                            border-bottom: 3px solid $black-color;
+                        }
+                    }
+                    
+                    div a {
+                        color: $black-color;
+                        font-size: 20px;
+                    }
+
+                    #logo {
+                        margin-top: 8px;
+                    }
+            }
+
+            &-desno {
+                display: flex;
+                justify-content: right;
+                align-items: center;
+                width: 50%;
+                height: 50px;
+                border-bottom: 1px solid $lightGray-color;
+
+                    .dropdown {
+                        position: absolute;
+                        @include flexCenter;                       
+                        margin-right: 290px;
+                        cursor: pointer;
+
+                            &-burger {                         
+                                cursor: pointer;
+                                width: 22px;
+                                height: 22px;
+                                border: none;                
+                                background: url(/images/burger.png);
+                                background-size: 22px;
+                                margin-bottom: 2px;                              
+                                   
+                                    &:focus + .dropdown-burger-menu {
+                                        opacity: 1;
+                                        pointer-events: all;
+                                        margin-top: 332px;
+                                        transition: 0.5s;
+                                    }
+
+                            }
+
+                            &-burger-menu {
+                                position: absolute;
+                                @include flexCenter;
+                                border: 2px solid $black-color;
+                                border-radius: 5px;
+                                margin-top: 300px;
+                                margin-left: -498px;
+                                width: 1100px;
+                                height: 280px;
+                                background-color: $white-color;
+                                opacity: 0;
+                                pointer-events: none;
+                                z-index: 1;               
+
+                                    &-naslov-ponuda {
+                                        border-left: 1px dotted $lightGray-color;
+                                        border-right: 1px dotted $lightGray-color;
+                                        height: 280px;
+                                        width: 200px;                                                                                                           
+                                    }
+
+                                    &-naslov {
+                                        @include flexCenter;
+                                        border-bottom: 2px dashed $darkGray-color;
+                                        padding-bottom: 10px;
+                                        padding-top: 10px;
+
+                                        a {
+                                            color: $black-color;
+                                            font-weight: map-get($font-weights, medium);
+                                            font-size: 19px;                                           
+                                        }
+                                    }
+                                    
+                                    &-ponuda {
+                                        
+                                        a {
+                                           @include flexCenter;
+                                           color: $gray-color;
+                                           margin-top: 10px;
+                                           font-size: 16px;
+                                           
+                                                &:hover {
+                                                    color: $darkGray-color;
+                                                    text-decoration: underline;
+                                                }
+                                        }
+
+                                        ul {                                                  
+                                            list-style-type: none;  
+                                                                     
+                                        }
+
+                                        li {
+                                            margin-bottom: 10px;                                              
+                                        }
+                                    }
+                            }
+
+                    }
+
+                    .moj-sbb a {
+                        font-size: 18px;
+                        font-weight: map-get($font-weights, medium);
+                        color: $black-color;
+                    }
+
+                    .moj-sbb {
+                        @include flexCenter;
+                        cursor: pointer;
+                        height: 50px;
+                        border-bottom: 3px solid transparent;
+
+                            &:hover {
+                                border-bottom: 3px solid $black-color;
+                            }
+                    }
+            }             
+    }
+}   
+
+                                        /* NAVIGACIJA-DOLE - KRAJ */

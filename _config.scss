@@ -1,0 +1,70 @@
+
+$font-weights: (
+    "thin": 500,
+    "medium": 600,
+    "bold": 700
+);
+
+@mixin  flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flexWidth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+@mixin flexHeight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+@mixin pageWidth-80 {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+@mixin pageWidth-100 {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+@keyframes SlideFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes SlideFromRight {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@mixin buttonColor {
+    background-color: $yellow-color;
+}
+
+$mobile: 768px;
+
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
